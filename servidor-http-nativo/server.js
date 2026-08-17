@@ -1,21 +1,19 @@
-const http = require('node:http')
+const http = require('node:http');
 
-const porta = 3000
+const porta = 3000;
 
 const server = http.createServer();
 
 server.on('request', (req, res) => {
     console.log(`Requisição recebida! ${req.method} ${req.url}`);
 
-    res.statusCode = 201
+    res.statusCode = 201;
     res.setHeader('Content-Type', 'application/json');
-    res.end("Recurso Criado");    
+    res.end(JSON.stringify({ status: "ok" }));    
 });
 
 server.listen(porta, ()=> {
-    console.log(`Servidor ouvindo na porta ${porta}`)
+    console.log(`Servidor ouvindo na porta ${porta}`);
 });
 
 console.log(new Date().toISOString());
-
-console.log(JSON.stringify({ status: "ok" }));
