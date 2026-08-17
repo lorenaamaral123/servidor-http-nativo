@@ -8,7 +8,7 @@ server.on('request', (req, res) => {
     console.log(`Requisição recebida! ${req.method} ${req.url}`);
 
     res.statusCode = 201
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Content-Type', 'application/json');
     res.end("Recurso Criado");    
 });
 
@@ -17,3 +17,5 @@ server.listen(porta, ()=> {
 });
 
 console.log(new Date().toISOString());
+
+console.log(JSON.stringify({ status: "ok" }));
