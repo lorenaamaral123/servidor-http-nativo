@@ -9,7 +9,6 @@ server.on('request', (req, res) => {
 
     res.statusCode = 201;
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ status: "ok" }));    
 });
 
 server.listen(porta, ()=> {
@@ -17,3 +16,10 @@ server.listen(porta, ()=> {
 });
 
 console.log(new Date().toISOString());
+
+//2) Explique, em suas palavras, o que aconteceria
+//se a linha `res.end()` fosse removida do código.
+//Teste essa hipótese executando o servidor sem
+//essa linha e observe o comportamento no
+//navegador.
+// O que acontece é que a linha dizendo o status do servidor nao aparece mais. 
