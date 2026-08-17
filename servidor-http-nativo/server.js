@@ -32,9 +32,14 @@ const server = http.createServer((req, res) => {
         return res.end(JSON.stringify(produtos));
     }
 
+    if (req.method == "GET" && urlObj.pathname == "/status"){
+        return res.end(JSON.stringify(status));
+    }
+
     res.end(JSON.stringify({ "data": "Página Inicial" }));
 });
 
 server.listen(port, () => {
     console.log("Servidor funcionando na porta ", port)
 });
+
