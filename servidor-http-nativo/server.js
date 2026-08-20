@@ -22,6 +22,7 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     if (req.method == "GET" && urlObj.pathname == "/contato") {
+        console.log(`Requisição recebida! ${req.method} ${req.url}`);
         res.statusCode = 200;
         return res.end(JSON.stringify({
             "numero_telefone": "67 99999-9999",
@@ -29,23 +30,25 @@ const server = http.createServer((req, res) => {
         }));
     } else {
         res.statusCode = 404;
-        res.end(JSON.stringify("Rota não encontrada"));
+        res.end(JSON.stringify("Rota não encontrada."));
     }
 
     if (req.method == "GET" && urlObj.pathname == "/produtos") {
+        console.log(`Requisição recebida! ${req.method} ${req.url}`);
         res.statusCode = 200;
         return res.end(JSON.stringify(produtos));
     } else {
         res.statusCode = 404;
-        res.end(JSON.stringify("Rota não encontrada"));
+        res.end(JSON.stringify("Rota não encontrada."));
     }
 
     if (req.method == "GET" && urlObj.pathname == "/status"){
+        console.log(`Requisição recebida! ${req.method} ${req.url}`);
         res.statusCode = 200;
-        return res.end(JSON.stringify({"atatus":"ok"}));
+        return res.end(JSON.stringify({"status":"ok"}));
     } else {
         res.statusCode = 404;
-        res.end(JSON.stringify("Rota não encontrada"));
+        res.end(JSON.stringify("Rota não encontrada."));
     }
 
     res.statusCode = 200;
@@ -56,4 +59,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
     console.log("Servidor funcionando na porta ", port)
 });
-
